@@ -5,9 +5,9 @@ import React,{Component} from 'react';
 import {Router, Route,hashHistory, IndexRoute} from 'react-router';
 
 import App from '../components/Main';
-import Login from '../components/auth/login';
+import Login from '../container/login.container';
 import Home from '../components/home';
-import UserCenter from '../components/home/userCenter';
+import UserCenter from '../container/userCenter.container';
 import TodoList from '../container/todoList.container';
 import TodoOperate from '../container/todoOperate.container';
 

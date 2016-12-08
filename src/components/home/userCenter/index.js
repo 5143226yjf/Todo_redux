@@ -4,7 +4,7 @@
 import React,{Component} from 'react';
 import {Link} from 'react-router';
 import Nav from '../../nav';
-import './index';
+import './index.styl';
 
 class UserCenter extends Component{
   render(){

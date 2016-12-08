@@ -1,0 +1,81 @@
+*
+  margin 0
+  padding 0
+.todo-list
+  width 100%
+  height 100%
+  .todo-content
+    max-width 500px
+    max-height 550px
+    margin 0 auto
+    ul
+      width 80%
+      margin 20px auto
+      border 1px solid rgb(38,164,222)
+      border-bottom none
+      clear both
+      li
+        width 100%
+        height 35px
+        text-align center
+        list-style-type none
+        border-bottom  1px solid rgb(38,164,222)
+        position relative
+        font-size 14px
+        .time
+          width 60px
+          height 35px
+          line-height 35px
+          float left
+          marign-left 10px
+        .title
+          width 110px
+          height 35px
+          line-height 35px
+          float left
+          marign-left 10px
+        .content
+          width 40px
+          height 35px
+          line-height 35px
+          float left
+          margin-left 5px
+        .content:hover .show-content
+           display block
+           z-index 9
+        .show-content
+          display none
+          width 100px
+          height 50px
+          line-height 50px
+          position absolute
+          right -1px
+          top 35px
+          border-radius 5px
+          background #ccc
+          color #fff
+        button
+          height 35px
+          line-height 35px
+          float right
+          margin-right 5px
+          border none
+          background #fff
+          outline none
+          color rgb(38,164,222)
+  .clear
+    width 80%
+    height 40px
+    margin 10px auto
+    button
+      width 100%
+      height 40px
+      line-height 40px
+      text-align center
+      border rgb(38,164,222)
+      background rgb(38,164,222)
+      border-radius 5px
+      color #fff
+      font-size 20px
+      outline none
+

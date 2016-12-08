@@ -13,7 +13,7 @@ class Nav extends Component{
   }
   _handleClick(){
     if(this.props.to==="login"){
-      goto('/auth/login');
+      goto('/login');
     }
     else if(this.props.to==="home"){
       goto("/home");

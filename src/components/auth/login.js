@@ -23,11 +23,12 @@ class Login extends Component{
     if(name==""){
       console.log("用户名不能为空");
       this.setState({isMsg:true,message:"用户名不能为空"});
+      setTimeout(()=>{this.setState({isMsg:false})},1500);
     }
     else{
       this.props.actions.loginTodo(name);
       this.setState({isMsg:true,message:"登录成功"});
-      setTimeout(()=>{goto('/home')},1500);
+      setTimeout(()=>{goto('/home')},1000);
     }
   }
   render(){

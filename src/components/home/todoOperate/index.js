@@ -3,21 +3,47 @@
  */
 import React,{Component} from 'react';
 import Nav from '../../nav';
+import ShowMsg from '../../showMsg';
+import date from '../../../until/regex';
 import './index.styl';
 
 class TodoOperate extends Component{
   constructor(props){
     super(props);
+    this.state={
+      isMsg:false,
+      message:''
+    };
     this.handleAdd=this.handleAdd.bind(this);
     this.handleCancel=this.handleCancel.bind(this);
   }
 
   handleAdd(e){
     e.preventDefault();
-    if(this.refs.time!=''&&this.refs.todoTitle!='') {
-      let content = {content: this.refs.todoTitle.value, isComplete: '0'};
-      console.log(content,'cal')
-      this.props.actions.addTodo(content);
+    let time = this.refs.time.value;
+    let title = this.refs.todoTitle.value;
+    let content = this.refs.todoContent.value;
+    if(time==''){
+      this.setState({isMsg:true,message:"时间不能为空"});
+      setTimeout(()=>{this.setState({isMsg:false})},1500);
+    }
+    else if(title==''){
+      this.setState({isMsg:true,message:"标题不能为空"});
+      setTimeout(()=>{this.setState({isMsg:false})},1500);
+    }
+    else if(content==''){
+      this.setState({isMsg:true,message:"内容不能为空"});
+      setTimeout(()=>{this.setState({isMsg:false})},1500);
+    }
+    else if(!date.test(time)){
+      this.setState({isMsg:true,message:"时间格式不对"});
+      setTimeout(()=>{this.setState({isMsg:false})},1500);
+    }
+    else{
+      let text = {time:time,title:title,content: content};
+      this.props.actions.addTodo(text);
+      this.setState({isMsg:true,message:"添加成功"});
+      setTimeout(()=>{this.setState({isMsg:false})},1500);
     }
   }
   handleCancel(e){
@@ -54,6 +80,7 @@ class TodoOperate extends Component{
             </div>
           </div>
         </div>
+        <ShowMsg isMsg={this.state.isMsg} message={this.state.message}/>
       </div>
 
     );
